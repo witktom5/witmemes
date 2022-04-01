@@ -1,0 +1,53 @@
+@import '../../node_modules/bootstrap/scss/functions';
+
+$dark: #212f45;
+$text-muted: rgba(238, 238, 238, 0.75);
+$primary: hsl(205, 52%, 42%);
+
+$success: hsl(146, 49%, 40%);
+$danger: hsl(1, 70%, 45%);
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  padding-top: 6rem;
+  background-color: hsl(0, 0%, 96%);
+}
+
+.bg-card {
+  background-color: hsl(217, 50%, 13%);
+}
+
+.loading {
+  margin: 1.5em auto 1.5em;
+  text-align: center;
+}
+
+.alert-flash {
+  position: fixed;
+  z-index: 102;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page-link {
+  color: $dark;
+}
+
+.page-item.disabled .page-link {
+  color: hsl(0, 0%, 35%);
+  opacity: 0.8;
+  background-color: hsl(0, 0%, 90%);
+}
+
+.page-item.active .page-link {
+  border-color: hsl(205, 52%, 42%);
+}
+
+.meme-loading,
+.meme-loading * {
+  visibility: hidden;
+}

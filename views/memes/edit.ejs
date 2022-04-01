@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">Edit meme</h1>
+    <div class="col-6 offset-3">
+        <form action="/meme/<%=meme._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" name="meme[title]" class="form-control" value="<%=meme.title%>" required>
+                <div class="valid-feedback">OK!</div>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" name="meme[category]" class="form-control" required>
+                    <option value="Funny">Funny</option>
+                    <option value="Animals">Animals</option>
+                </select>
+                <div class="valid-feedback">OK!</div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success text-light">Submit changes</button>
+            </div>
+        </form>
+        <a href="/meme/<%=meme._id%>">Back to Your Meme</a>
+    </div>
+</div>

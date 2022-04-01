@@ -1,0 +1,28 @@
+<% if (success && success.length > 0) {%>
+
+<div class="alert alert-success alert-dismissible fade show alert-flash" role="alert">
+    <%= success %>
+    <button type="button" class="btn-close btn-flash" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<%}%>
+    
+    <% if (info && info.length > 0) {%>
+
+<div class="alert alert-info alert-dismissible fade show alert-flash" role="alert">
+    <%= info %>
+    <button type="button" class="btn-close btn-flash" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<%}%>
+    
+    <% if (error && error.length > 0) {%>
+
+<div class="alert alert-danger alert-dismissible fade show alert-flash" role="alert">
+    <%= error %>
+    <button type="button" class="btn-close btn-flash" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<%}%>
+
+<script src="/js/closeFlash.js"></script>

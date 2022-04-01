@@ -1,0 +1,87 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container mt-3 mb-4">
+
+    <%- include('../partials/meme', {meme: meme}) %>
+
+    <div class="d-flex">
+
+        <% if (currentUser && meme.author.equals(currentUser._id)) { %>
+
+        <a href="/meme/<%=meme._id%>/edit" class="btn btn-primary me-1 text-light">Edit meme</a>
+        <form action="/meme/<%=meme._id%>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger text-light">Delete meme</button>
+        </form>
+        <% } %>
+        <a href="<%=goBack%><% if (goBack = '/' || goBack.includes('/memes/')) { %>#<%=meme._id%><% } %>" class="btn btn-dark ms-auto">Go back</a>
+
+
+
+    </div>
+
+
+    <% if (currentUser) { %>
+    <form action="/meme/<%=meme._id%>" method="POST" novalidate class="validated-form">
+        <div class="my-3">
+            <label for="comment" class="form-label">Add a comment</label>
+            <textarea name="comment[text]" id="comment" cols="15" rows="3" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3 text-light">Submit comment</button>
+    </form>
+
+    <% } else { %>
+    <h4 class="my-4"><a href="/login" class="link-secondary">Login to add a comment</a></h3>
+        <% } %>
+
+
+        <h3 class="my-3" id="comments">Comments</h3>
+
+        <% if (!meme.comments || meme.comments.length < 1) { %>
+        <h5 class="my-4">No comments yet</h5>
+        <% } else { %>
+        <% for (let comment of meme.comments) {%>
+        <div class="card mb-2 shadow">
+            <div class="card-body ms-2">
+                <div class="d-flex align-items-center mb-1">
+                    <h5 class="card-title mb-0 fs-6"><%=comment.author.username %></h5>
+                    <span class="ms-auto fw-lighter text-nowrap"><%=comment.date %></span>
+                    <% if (currentUser && comment.author.equals(currentUser._id)) { %>
+                    <form action="/meme/<%=meme._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-link text-dark"><i class="bi bi-x-square"></i></button>
+                    </form>
+                    <% } %>
+                </div>
+                <div class="card-text"><%=comment.text %></div>
+
+                <div class="d-flex mt-3">
+                    <div class="d-flex flex-row align-items-center">
+                        <form class="comment-form-vote" data-id="<%=comment._id%>" data-memeid="<%=meme._id%>" data-vote="upvote">
+                            <button type="submit" id="btn-comment-upvote-<%=comment._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="btn px-1 py-0 <% if (currentUser && comment.upvotedBy.includes(currentUser._id)) { %>
+                        btn-success
+                    <% } else { %>
+                        btn-secondary
+                        <% } %> " <%if(!currentUser){%>disabled<%} %>><i class="bi bi-arrow-up-short text-light"></i></button>
+                        </form>
+                        <span class="fs-6 px-2" id="commentUpvoteCounter-<%=comment._id%>"><%=comment.upvotedBy.length%></span>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center">
+                        <form class="comment-form-vote" data-id="<%=comment._id%>" data-memeid="<%=meme._id%>" data-vote="downvote">
+                            <button type="submit" id="btn-comment-downvote-<%=comment._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="btn px-1 py-0 <% if (currentUser && comment.downvotedBy.includes(currentUser._id)) { %>
+                        btn-danger
+                    <% } else { %>
+                        btn-secondary
+                        <% } %> " <%if(!currentUser){%>disabled<%} %>><i class="bi bi-arrow-down-short text-light"></i></button>
+                        </form>
+                        <span class="fs-6 px-2" id="commentDownvoteCounter-<%=comment._id%>"><%=comment.downvotedBy.length%></span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <% } %>
+        <% } %>
+</div>
+
+<script src="/js/commentVote.js"></script>

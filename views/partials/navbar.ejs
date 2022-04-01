@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark bg-gradient shadow" style="z-index: 101">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">WitMemes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="toggleMenu">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">All</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/memes/funny/1">Funny</a></li>
+                        <li><a class="dropdown-item" href="/memes/animals/1">Animals</a></li>
+                        <li><a class="dropdown-item" href="/memes/sport/1">Sport</a></li>
+                        <li><a class="dropdown-item" href="/memes/gaming/1">Gaming</a></li>
+                        <li><a class="dropdown-item" href="/memes/weird/1">Weird</a></li>
+                        <li><a class="dropdown-item" href="/memes/movies/1">Movies</a></li>
+                        <li><a class="dropdown-item" href="/memes/politics/1">Politics</a></li>
+                    </ul>
+                </li>
+                <a class="nav-link" href="/top">Top 10</a>
+            </div>
+            <div class="navbar-nav">
+                <% if (currentUser) {%>
+                <span class="navbar-text fw-bolder fs-6 text-light me-2"><%=currentUser.username%> </span>
+                <a class="nav-link" href="/memes/new">Add a new meme</a>
+                <a class="nav-link" href="/logout">Logout</a>
+                <%} else {%>
+                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/register">Register</a>
+                <%}%>
+            </div>
+        </div>
+
+    </div>
+</nav>
