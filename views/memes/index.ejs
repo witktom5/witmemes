@@ -40,8 +40,6 @@
             <li class=" page-item <% if (parseInt(page) === pageCount || pageCount === 0){%>disabled<% } %>">
                 <a class="page-link" href="/memes/<%if (typeof category === 'string') {%><%=category.toLowerCase()%>/<% } %><%=parseInt(page)+1%>" aria-label="Next">&raquo;</a>
             </li>
-            <% console.log(page) %>
-            <% console.log(pageCount) %>
         </ul>
     </nav>
 </div>

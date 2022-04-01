@@ -44,7 +44,10 @@ module.exports.renderCategoryPages = catchAsync(async (req, res) => {
   const category = memecategory.charAt(0).toUpperCase() + memecategory.slice(1);
   const count = await Meme.count({ category: category });
   const pageCount = Math.ceil(count / 6);
-  if (page > pageCount || page < 1) return res.redirect('/');
+  if (page > pageCount || page < 1) {
+    req.flash('info', 'This page is empty');
+    return res.redirect('/');
+  }
   const memes = await Meme.find({ category: category })
     .skip(page * 6 - 6)
     .limit(6)
