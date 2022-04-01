@@ -8,9 +8,9 @@
         <span class="fs-6 fw-light text-muted ms-auto ps-4 align-self-start text-end">by <%=meme.author.username %> </span>
     </div>
     <a href="/meme/<%=meme._id%>"><img src="<%=meme.image.displayImg %>" data-id="<%=meme._id%>" class="card-img-top rounded-0" alt="meme"></a>
-    <div class="card-footer d-flex align-items-center bg-card bg-gradient py-2 border-0">
+    <div class="card-footer flex-wrap  d-flex align-items-center bg-card bg-gradient py-2 border-0">
 
-        <div class="card flex-row p-1 align-items-center me-2 bg-light">
+        <div class="card flex-row p-1 align-items-center me-2 my-1">
             <form class="form-vote" data-id="<%=meme._id%>" data-vote="upvote">
                 <button type="submit" id="btn-upvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.upvotedBy.includes(currentUser._id)) { %>
                 btn-success
@@ -18,10 +18,10 @@
                 btn-secondary
                 <% } %> " <%if(!currentUser){%>disabled<%} %>><i class="bi bi-arrow-up text-light"></i></button>
             </form>
-            <span class="fs-4 px-3" id="upvoteCounter-<%=meme._id%>"><%=meme.upvotedBy.length%> </span>
+            <span class="px-1 fs-4" id="upvoteCounter-<%=meme._id%>"><%=meme.upvotedBy.length%> </span>
         </div>
 
-        <div class="card flex-row p-1 align-items-center me-2">
+        <div class="card flex-row p-1 align-items-center me-2 my-1">
             <form class="form-vote" data-id="<%=meme._id%>" data-vote="downvote">
                 <button type="submit" id="btn-downvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.downvotedBy.includes(currentUser._id)) { %>
                 btn-danger
@@ -29,14 +29,14 @@
                 btn-secondary
                 <% } %> " <%if(!currentUser){%>disabled<%} %>><i class="bi bi-arrow-down text-light"></i></button>
             </form>
-            <span class="fs-4 px-3" id="downvoteCounter-<%=meme._id%>"><%=meme.downvotedBy.length%> </span>
+            <span class="px-1 fs-4" id="downvoteCounter-<%=meme._id%>"><%=meme.downvotedBy.length%> </span>
         </div>
 
-        <div class="card flex-row p-1 align-items-center">
+        <div class="card flex-row p-1 align-items-center my-1">
             <a class="btn btn-secondary py-1" href="/meme/<%=meme._id%>/#comments"><i class="bi bi-chat-fill"></i></a>
-            <span class="fs-4 px-3 py-0"><%=meme.comments.length%> </span>
+            <span class="px-1 fs-4"><%=meme.comments.length%> </span>
         </div>
 
-        <span class="fs-6 fw-light text-muted text-end ms-auto me-2"><%=meme.date %> </span>
+        <span class="fs-6 fw-light text-muted text-end ms-auto"><%=meme.date %> </span>
     </div>
 </div>
