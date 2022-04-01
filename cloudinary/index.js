@@ -11,7 +11,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: 'Memepage',
-    allowedFormats: ['jpeg', 'jpg', 'png'],
+    allowed_formats: ['jpeg', 'jpg', 'png'],
   },
 });
 
