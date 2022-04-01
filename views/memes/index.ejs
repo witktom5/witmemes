@@ -19,13 +19,13 @@
                 <a class="page-link" href="/memes/<%if (typeof category === 'string') {%><%=category.toLowerCase()%>/<% } %><%=parseInt(page)-1%>" aria-label="Previous">&laquo;</a>
             </li>
             <li class="page-item <% if (page < 2){%>active<%}%>">
-                <a class="page-link" href="/memes/<%if (typeof category === 'string') {%><%=category.toLowerCase()%>/<% } %><% if (page < 2){%>1<%} else if  (parseInt(page) === pageCount) {%><%=pageCount - 2%><%} else {%><%=page-1%><%}%>"><% if (page <= 2){%>1<%}else if (parseInt(page) === pageCount) {%><%=pageCount - 2%><%} else {%> <%=page-1%>  <%}%></a>
+                <a class="page-link" href="/memes/<%if (typeof category === 'string') {%><%=category.toLowerCase()%>/<% } %><% if (page <= 2){%>1<%} else if  (parseInt(page) === pageCount) {%><%=pageCount - 2%><%} else {%><%=page-1%><%}%>"><% if (page <= 2){%>1<%}else if (parseInt(page) === pageCount) {%><%=pageCount - 2%><%} else {%> <%=page-1%>  <%}%></a>
                 </li>
 
                 <%if (pageCount > 1) { %> 
 
-            <li class=" page-item <% if (page >= 2 && page < pageCount){%>active<%}%>">
-                <a class="page-link" href="/memes/<%if (typeof category === 'string') {%><%=category.toLowerCase()%>/<% } %><% if (page < 2){%>2<%} else if (parseInt(page) === pageCount) {%><%=pageCount - 1%><%} else {%><%=page%><%}%>"><% if (page <= 2){%>2<%}else if (parseInt(page) === pageCount) {%><%=pageCount - 1%><%} else {%> <%=page%><%}%>
+            <li class=" page-item <% if ((page >= 2 && page < pageCount) || (parseInt(page) === 2 && pageCount === 2)){%>active<%}%>">
+                <a class="page-link" href="/memes/<%if (typeof category === 'string') {%><%=category.toLowerCase()%>/<% } %><% if (page <= 2){%>2<%} else if (parseInt(page) === pageCount) {%><%=pageCount - 1%><%} else {%><%=page%><%}%>"><% if (page <= 2){%>2<%}else if (parseInt(page) === pageCount) {%><%=pageCount - 1%><%} else {%> <%=page%><%}%>
                 </a>
             <li>
 
