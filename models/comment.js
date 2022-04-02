@@ -7,12 +7,14 @@ const CommentSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'User',
+      unique: true,
     },
   ],
   downvotedBy: [
     {
       type: Schema.Types.ObjectId,
       ref: 'User',
+      unique: true,
     },
   ],
   author: {
