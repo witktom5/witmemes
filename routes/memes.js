@@ -4,7 +4,12 @@ const multer = require('multer');
 const { storage, limits } = require('../cloudinary');
 const upload = multer({ storage, limits });
 
-const { isLoggedIn, isAuthor, clearGoBack } = require('../middleware');
+const {
+  isLoggedIn,
+  isAuthor,
+  clearGoBack,
+  voteAwaiting,
+} = require('../middleware');
 const memes = require('../controllers/memes');
 
 router.get('/', clearGoBack, memes.renderStartPage);
@@ -27,7 +32,7 @@ router.get('/meme/:id', memes.showMeme);
 
 router.put('/meme/:id', isLoggedIn, isAuthor, memes.editMeme);
 
-router.patch('/meme/:id', isLoggedIn, memes.voteMeme);
+router.patch('/meme/:id', isLoggedIn, voteAwaiting, memes.voteMeme);
 
 router.delete('/meme/:id', isLoggedIn, isAuthor, memes.deleteMeme);
 

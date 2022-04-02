@@ -25,6 +25,7 @@ module.exports.deleteComment = catchAsync(async (req, res) => {
 });
 
 module.exports.voteComment = catchAsync(async (req, res) => {
+  req.session.voteAwaiting = true;
   const { commentId } = req.params;
   const comment = await Comment.findById(commentId);
   if (req.body.vote === 'upvote') {
@@ -59,5 +60,6 @@ module.exports.voteComment = catchAsync(async (req, res) => {
   const changedComment = await Comment.findById(commentId);
   const totalUpvotes = changedComment.upvotedBy.length;
   const totalDownvotes = changedComment.downvotedBy.length;
+  delete req.session.voteAwaiting;
   res.json({ totalUpvotes, totalDownvotes });
 });

@@ -119,6 +119,7 @@ module.exports.editMeme = catchAsync(async (req, res) => {
 });
 
 module.exports.voteMeme = catchAsync(async (req, res) => {
+  req.session.voteAwaiting = true;
   const { id } = req.params;
   const meme = await Meme.findById(id);
   if (req.body.vote === 'upvote') {
@@ -153,6 +154,7 @@ module.exports.voteMeme = catchAsync(async (req, res) => {
   const changedMeme = await Meme.findById(id);
   const totalUpvotes = changedMeme.upvotedBy.length;
   const totalDownvotes = changedMeme.downvotedBy.length;
+  delete req.session.voteAwaiting;
   res.json({ totalUpvotes, totalDownvotes });
 });
 

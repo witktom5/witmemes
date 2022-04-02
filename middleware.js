@@ -10,6 +10,13 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
+module.exports.voteAwaiting = (req, res, next) => {
+  if (req.session.voteAwaiting) {
+    return res.end();
+  }
+  next();
+};
+
 module.exports.clearGoBack = (req, res, next) => {
   if (req.session.goBack) {
     delete req.session.goBack;

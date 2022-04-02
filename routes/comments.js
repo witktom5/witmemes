@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const comments = require('../controllers/comments');
-const { isLoggedIn, isCommentAuthor } = require('../middleware');
+const { isLoggedIn, isCommentAuthor, voteAwaiting } = require('../middleware');
 
 router.post('/:id', isLoggedIn, comments.addNewComment);
 
@@ -12,6 +12,11 @@ router.delete(
   comments.deleteComment
 );
 
-router.patch('/:id/comments/:commentId', isLoggedIn, comments.voteComment);
+router.patch(
+  '/:id/comments/:commentId',
+  isLoggedIn,
+  voteAwaiting,
+  comments.voteComment
+);
 
 module.exports = router;
