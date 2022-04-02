@@ -27,6 +27,11 @@ module.exports.renderTopPage = catchAsync(async (req, res) => {
   allMemes.sort(function (a, b) {
     if (a.totalUpvotes > b.totalUpvotes) return -1;
     if (a.totalUpvotes < b.totalUpvotes) return 1;
+    if (a.totalUpvotes === b.totalUpvotes) {
+      if (a.totalDownvotes > b.totalDownvotes) return 1;
+      if (a.totalDownvotes < b.totalDownvotes) return -1;
+      return 0;
+    }
     return 0;
   });
 

@@ -79,6 +79,10 @@ MemeSchema.virtual('totalUpvotes').get(function () {
   return this.upvotedBy.length;
 });
 
+MemeSchema.virtual('totalDownvotes').get(function () {
+  return this.downvotedBy.length;
+});
+
 MemeSchema.post('findOneAndDelete', async function (doc) {
   if (doc) {
     await Comment.deleteMany({
