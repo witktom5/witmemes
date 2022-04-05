@@ -11,6 +11,11 @@ $danger: hsl(1, 70%, 45%);
 @import '../../node_modules/bootstrap/scss/utilities';
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5em;
+}
+
 body {
   padding-top: 4.5rem;
   background-color: hsl(0, 0%, 96%);
