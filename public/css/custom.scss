@@ -1,8 +1,8 @@
 @import '../../node_modules/bootstrap/scss/functions';
 
-$dark: hsl(217, 40%, 6%);
+$dark: hsl(217, 38%, 5%);
 $text-muted: rgba(238, 238, 238, 0.75);
-$primary: hsl(205, 52%, 42%);
+$primary: hsl(205, 100%, 30%);
 
 $success: hsl(146, 49%, 40%);
 $danger: hsl(1, 70%, 45%);
@@ -27,8 +27,12 @@ body {
   margin: 0;
 }
 
+.meme-btn-bg {
+  background-color: hsl(230, 10%, 95%);
+}
+
 .bg-card {
-  background-color: hsl(217, 50%, 13%);
+  background-color: hsl(217, 40%, 2%);
 }
 
 .loading {
@@ -55,7 +59,7 @@ body {
 }
 
 .page-item.active .page-link {
-  border-color: hsl(205, 52%, 42%);
+  border-color: hsl(205, 100%, 32%);
 }
 
 .meme-loading,

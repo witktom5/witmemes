@@ -11,9 +11,9 @@
         </div>
     </div>
     <a href="/meme/<%=meme._id%>"><img src="<%=meme.image.displayImg %>" data-id="<%=meme._id%>" class="card-img-top rounded-0" alt="meme"></a>
-    <div class="card-footer d-flex flex-wrap justify-content-between align-items-center bg-card bg-gradient py-2 border-0">
+    <div class="card-footer bg-dark d-flex flex-wrap justify-content-between align-items-center bg-card bg-gradient py-2 border-0">
 
-        <div class="card flex-row p-1 align-items-center my-1 me-2">
+        <div class="card flex-row p-1 align-items-center my-1 me-2 meme-btn-bg">
             <form class="form-vote" data-id="<%=meme._id%>" data-vote="upvote">
                 <button type="submit" aria-label="upvote" id="btn-upvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.upvotedBy.includes(currentUser._id)) { %>
                 btn-success
@@ -24,7 +24,7 @@
             <span class="px-1 fs-4" id="upvoteCounter-<%=meme._id%>"><%=meme.upvotedBy.length%> </span>
         </div>
 
-        <div class="card flex-row p-1 align-items-center me-2 my-1">
+        <div class="card flex-row p-1 align-items-center me-2 my-1 meme-btn-bg">
             <form class="form-vote" data-id="<%=meme._id%>" data-vote="downvote">
                 <button type="submit" aria-label="downvote" id="btn-downvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.downvotedBy.includes(currentUser._id)) { %>
                 btn-danger
@@ -35,7 +35,7 @@
             <span class="px-1 fs-4" id="downvoteCounter-<%=meme._id%>"><%=meme.downvotedBy.length%> </span>
         </div>
 
-        <div class="card flex-row p-1 align-items-center my-1">
+        <div class="card flex-row p-1 align-items-center my-1 meme-btn-bg">
             <a class="btn btn-secondary py-1" aria-label="comments" href="/meme/<%=meme._id%>/#comments"><i class="bi bi-chat-fill"></i></a>
             <span class="px-1 fs-4"><%=meme.comments.length%> </span>
         </div>
