@@ -1,6 +1,6 @@
 @import '../../node_modules/bootstrap/scss/functions';
 
-$dark: #212f45;
+$dark: hsl(217, 40%, 6%);
 $text-muted: rgba(238, 238, 238, 0.75);
 $primary: hsl(205, 52%, 42%);
 
@@ -19,6 +19,12 @@ html {
 body {
   padding-top: 4.5rem;
   background-color: hsl(0, 0%, 96%);
+}
+
+.categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .bg-card {

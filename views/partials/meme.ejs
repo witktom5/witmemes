@@ -15,7 +15,7 @@
 
         <div class="card flex-row p-1 align-items-center my-1 me-2">
             <form class="form-vote" data-id="<%=meme._id%>" data-vote="upvote">
-                <button type="submit" id="btn-upvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.upvotedBy.includes(currentUser._id)) { %>
+                <button type="submit" aria-label="upvote" id="btn-upvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.upvotedBy.includes(currentUser._id)) { %>
                 btn-success
             <% } else { %>
                 btn-secondary
@@ -26,7 +26,7 @@
 
         <div class="card flex-row p-1 align-items-center me-2 my-1">
             <form class="form-vote" data-id="<%=meme._id%>" data-vote="downvote">
-                <button type="submit" id="btn-downvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.downvotedBy.includes(currentUser._id)) { %>
+                <button type="submit" aria-label="downvote" id="btn-downvote-<%=meme._id%>" value="<%if(currentUser){%><%=currentUser._id%><%}%>" class="py-1 btn <% if (currentUser && meme.downvotedBy.includes(currentUser._id)) { %>
                 btn-danger
             <% } else { %>
                 btn-secondary
@@ -36,7 +36,7 @@
         </div>
 
         <div class="card flex-row p-1 align-items-center my-1">
-            <a class="btn btn-secondary py-1" href="/meme/<%=meme._id%>/#comments"><i class="bi bi-chat-fill"></i></a>
+            <a class="btn btn-secondary py-1" aria-label="comments" href="/meme/<%=meme._id%>/#comments"><i class="bi bi-chat-fill"></i></a>
             <span class="px-1 fs-4"><%=meme.comments.length%> </span>
         </div>
 
