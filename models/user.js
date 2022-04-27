@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     default: Date.now,
     immutable: true,
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 UserSchema.plugin(passportLocalMongoose);

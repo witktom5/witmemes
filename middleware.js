@@ -20,9 +20,11 @@ module.exports.clearGoBack = (req, res, next) => {
 module.exports.isAuthor = async (req, res, next) => {
   const { id } = req.params;
   const meme = await Meme.findById(id);
-  if (!req.user || !meme.author.equals(req.user._id)) {
-    req.flash('error', 'You have no permission to do that');
-    return res.redirect(`/meme/${id}`);
+  if (!req.user.isAdmin) {
+    if (!req.user || !meme.author.equals(req.user._id)) {
+      req.flash('error', 'You have no permission to do that');
+      return res.redirect(`/meme/${id}`);
+    }
   }
   next();
 };
@@ -30,9 +32,11 @@ module.exports.isAuthor = async (req, res, next) => {
 module.exports.isCommentAuthor = async (req, res, next) => {
   const { id, commentId } = req.params;
   const comment = await Comment.findById(commentId);
-  if (!req.user || !comment.author.equals(req.user._id)) {
-    req.flash('error', 'You have no permission to do that');
-    return res.redirect(`/meme/${id}`);
+  if (!req.user.isAdmin) {
+    if (!req.user || !comment.author.equals(req.user._id)) {
+      req.flash('error', 'You have no permission to do that');
+      return res.redirect(`/meme/${id}`);
+    }
   }
   next();
 };

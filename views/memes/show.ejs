@@ -6,7 +6,7 @@
 
     <div class="d-flex">
 
-        <% if (currentUser && meme.author.equals(currentUser._id)) { %>
+        <% if ((currentUser && meme.author.equals(currentUser._id)) || currentUser.isAdmin) { %>
 
         <a href="/meme/<%=meme._id%>/edit" class="btn btn-primary me-1 text-light">Edit meme</a>
         <form action="/meme/<%=meme._id%>?_method=DELETE" method="POST">
@@ -45,7 +45,7 @@
                 <div class="d-flex align-items-center mb-1">
                     <h5 class="card-title mb-0 fs-6"><%=comment.author.username %></h5>
                     <span class="ms-auto fw-lighter text-nowrap"><%=comment.date %></span>
-                    <% if (currentUser && comment.author.equals(currentUser._id)) { %>
+                    <% if ((currentUser && comment.author.equals(currentUser._id)) || currentUser.isAdmin) { %>
                     <form action="/meme/<%=meme._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-link text-dark"><i class="bi bi-x-square"></i></button>
                     </form>
