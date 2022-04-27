@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate') %>
 <div class="container">
     <div class="col-8 offset-2">
-        <h1 class="mb-4">Login</h1>
+        <h1 class="mb-4 mt-5">Login</h1>
         <form action="/login" method="POST" class="validated-form" novalidate>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
@@ -13,7 +13,7 @@
                 <input type="password" id="password" name="password" class="form-control" required>
                 <div class="valid-feedback">OK!</div>
             </div>
-            <button class="btn btn-success text-light">Login</button>
+            <button class="btn btn-primary text-light">Login</button>
         </form>
     </div>
 </div>

@@ -1,11 +1,12 @@
 @import '../../node_modules/bootstrap/scss/functions';
 
-$dark: hsl(217, 38%, 5%);
-$text-muted: rgba(238, 238, 238, 0.75);
-$primary: hsl(205, 100%, 30%);
+$dark: hsl(217, 38%, 7%);
+$text-muted: hsla(0, 0%, 100%, 0.7);
+$primary: hsl(220, 32%, 31%);
+$success: hsl(146, 50%, 42%);
+$danger: hsl(1, 65%, 42%);
+$secondary: hsl(220, 17%, 32%);
 
-$success: hsl(146, 49%, 40%);
-$danger: hsl(1, 70%, 45%);
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/utilities';
@@ -28,11 +29,12 @@ body {
 }
 
 .meme-btn-bg {
-  background-color: hsl(230, 10%, 95%);
+  background-color: hsl(230, 28%, 6%);
+  border-top: none;
 }
 
 .bg-card {
-  background-color: hsl(217, 40%, 2%);
+  background-color: hsl(220, 12%, 24%);
 }
 
 .loading {
@@ -59,7 +61,7 @@ body {
 }
 
 .page-item.active .page-link {
-  border-color: hsl(205, 100%, 32%);
+  border-color: hsl(230, 28%, 25%);
 }
 
 .meme-loading,
