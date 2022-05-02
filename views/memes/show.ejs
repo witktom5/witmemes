@@ -6,7 +6,7 @@
 
     <div class="d-flex">
 
-        <% if ((currentUser && meme.author.equals(currentUser._id)) || currentUser.isAdmin) { %>
+        <% if ((currentUser && meme.author.equals(currentUser._id)) || (currentUser && currentUser.isAdmin)) { %>
 
         <a href="/meme/<%=meme._id%>/edit" class="btn btn-primary me-1 text-light">Edit meme</a>
         <form action="/meme/<%=meme._id%>?_method=DELETE" method="POST">
