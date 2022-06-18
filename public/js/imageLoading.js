@@ -4,6 +4,7 @@ window.addEventListener('load', (e) => {
     const imageDiv = document.getElementById(image.dataset.id);
     const imageSpinner = document.getElementById(`spinner-${image.dataset.id}`);
     const isLoaded = image.complete && image.naturalHeight !== 0;
+    console.log(image.complete, image);
     if (isLoaded) {
       imageDiv.classList.remove('meme-loading');
       imageSpinner.remove();
